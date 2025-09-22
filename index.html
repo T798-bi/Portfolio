@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timmy Star | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --main-color: #1a5c85;
+            --secondary-color: #f5f5f5;
+            --text-color: #333;
+            --light-text: #777;
+            --bg-color:   Azure;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--main-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--main-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            width: 50%;
+        }
+
+        .hero-image {
+            width: 30%;
+            margin-bottom: 30px;
+            text-align:center;
+        }
+
+        .hero-image img {
+            max-width: 90%;
+            border-radius: 40%;
+            border: 5px solid var(--main-color);
+            background-color: #d2d4d5;
+        }
+
+        .hello {
+            font-size: 18px;
+            color: var(--main-color);
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+
+        .hero p {
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--main-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #5543b3;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: var(--main-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            width: 60%;
+        }
+
+        .about-image {
+            width: 35%;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            margin: 20px 0;
+            font-size: 24px;
+        }
+
+        .service-card p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+
+        .read-more {
+            color: var(--main-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            margin-bottom: 40px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: var(--main-color);
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--main-color);
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--main-color);
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: var(--light-text);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--main-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero, .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-content, .hero-image, .about-text, .about-image {
+                width: 100%;
+            }
+            
+            .hero-image, .about-image {
+                margin-top: 40px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Timmy Star</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hello">Hello, it's me</p>
+                <h1>AJIBOLA OLUWATIMILEYIN</h1>
+                <h2>I'm a <span class="typing">Cybersecurity Analyst</span></h2>
+                <p>Also known as Timmy Star, a dedicated cybersecurity specialist with a focus on creating secure, responsive, and scalable web applications. With a strong foundation in cybersecurity principles, I bring ideas to life and help businesses thrive online securely.</p>
+                <a href="#about" class="btn">More About Me</a>
+            </div><br><br><br><br><br><br>
+            <div class="hero-image">
+                <img style="width: 90%; size: 90px;"   src="My_Profile_pic-rb.png" alt="Ajibola Oluwatimileyin">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Full Stack Developer & Cybersecurity Specialist</h3>
+                    <p>I'm a passionate and versatile web developer, full stack developer, and UI/UX designer with a knack for crafting seamless, user-centric digital experiences. With expertise in both front-end and back-end technologies, I build robust, scalable web applications using tools like HTML, CSS, JavaScript, Node.js, and React, while ensuring clean, maintainable code.</p>
+                    <p>My UI/UX design skills focus on creating intuitive interfaces and engaging visuals, enhanced by modern aesthetics like dynamic animations and responsive layouts. I thrive on turning ideas into reality, delivering projects that balance functionality, accessibility, and good vibes.</p>
+                    <p>As a dedicated cybersecurity student, I aim to leverage my technical skills, knowledge, and passion for technology to protect digital systems and data from cyber threats. I am committed to continuous learning and professional growth in the field of cybersecurity to contribute to creating safer digital environments for individuals and organizations.</p>
+                    <p>Whether it's designing a sleek portfolio or developing a complex e-commerce platform, I'm driven by inclusivity, creativity, and a commitment to excellence.</p>
+                </div><br>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-paint-brush fa-3x"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>UI/UX Design focuses on creating intuitive and visually appealing user interfaces.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code fa-3x"></i>
+                    <h3>Web Development</h3>
+                    <p>Building responsive and dynamic websites using the latest web technologies.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                 <div class="service-card">
+                    <i class="fas fa-pencil-alt fa-3x"></i>
+                    <h3>Cybersecurity Analyst</h3>
+                    <p>I Analyse networks and data to check for any security downgradement.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-pencil-alt fa-3x"></i>
+                    <h3>Penetration Tester</h3>
+                    <p>I Test  website, Networks and files to implement the security measures.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML</span>
+                            <span>89%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 89%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>CSS</span>
+                            <span>79%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 79%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>React</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Creativity</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Communication</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Teamwork</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Problem Solving</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p><i class="fas fa-envelope"></i> oluwatimileyinaji@gmail.com</p>
+                    
+            <p>GitHub: <a href="https://github.com/T798-bi">T798-bi</a></p>
+
+                    <p><i class="fas fa-phone"></i> 09049414101</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 10, Ojegbile Str, Olambe, Ogun State</p>
+                    <p>I'm always open to discussing product design work or partnership opportunities.</p>
+                    
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="email" placeholder="Enter Your Email" required>
+                        <textarea placeholder="Enter Your Message" required></textarea>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 Timmy Star. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple typing animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const texts = ['Cybersecurity Specialist', 'Web Developer', 'UI/UX Designer', 'Full Stack Developer'];
+            let count = 0;
+            let index = 0;
+            let currentText = '';
+            let letter = '';
+            
+            function type() {
+                if (count === texts.length) {
+                    count = 0;
+                }
+                currentText = texts[count];
+                letter = currentText.slice(0, ++index);
+                
+                document.querySelector('.typing').textContent = letter;
+                if (letter.length === currentText.length) {
+                    count++;
+                    index = 0;
+                    setTimeout(type, 2000);
+                } else {
+                    setTimeout(type, 100);
+                }
+            }
+            
+            type();
+        });
+    </script>
+</body>
+</html>
