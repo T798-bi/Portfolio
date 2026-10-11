@@ -3,349 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timmy Star | Portfolio</title>
+    <meta name="description" content="Timmy Star (Ajibola Oluwatimileyin) - Cybersecurity Analyst, Penetration Tester and Full Stack Web Developer.">
+    <title>Timmy Star | Cybersecurity Analyst &amp; Full Stack Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --main-color: #1a5c85;
-            --secondary-color: #f5f5f5;
-            --text-color: #333;
-            --light-text: #777;
-            --bg-color:   Azure;
+            --main-dark: #0f3d5a;
+            --main-soft: #dcebf4;
+            --secondary-color: #f5f9fb;
+            --text-color: #1f2a33;
+            --light-text: #5d6b76;
+            --bg-color: #f0ffff; /* Azure */
+            --card: #ffffff;
+            --border: #d5e3ec;
+            --terminal-bg: #0c1f2d;
+            --terminal-text: #cfe7f5;
+            --terminal-green: #6fe3a1;
+            --terminal-amber: #f2c46d;
+            --font-body: 'Poppins', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
         body {
+            font-family: var(--font-body);
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+        a { color: inherit; }
+        img { max-width: 100%; display: block; }
 
-        /* Header & Navigation */
+        :focus-visible { outline: 3px solid var(--main-color); outline-offset: 3px; border-radius: 4px; }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+        /* ---------- Header ---------- */
         header {
-            background-color: var(--bg-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(240, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
 
-        .logo {
+        .logo { font-size: 24px; font-weight: 700; color: var(--main-color); text-decoration: none; }
+
+        .nav-links { display: flex; list-style: none; gap: 28px; }
+        .nav-links a { text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--main-color); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 0;
             font-size: 24px;
-            font-weight: 700;
             color: var(--main-color);
+            cursor: pointer;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--main-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 150px 0 100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .hero-content {
-            width: 50%;
-        }
-
-
-
-        .hello {
-            font-size: 18px;
-            color: var(--main-color);
-            margin-bottom: 10px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: var(--light-text);
-        }
-
-        .hero p {
-            margin-bottom: 30px;
-            color: var(--light-text);
-        }
-
+        /* ---------- Buttons ---------- */
         .btn {
             display: inline-block;
             padding: 12px 30px;
             background-color: var(--main-color);
-            color: white;
-            border-radius: 5px;
+            color: #fff;
+            border: 2px solid var(--main-color);
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 500;
-            transition: background-color 0.3s;
+            font-family: inherit;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
         }
+        .btn:hover { background-color: var(--main-dark); border-color: var(--main-dark); }
+        .btn-outline { background: transparent; color: var(--main-color); }
+        .btn-outline:hover { background: var(--main-color); color: #fff; }
+        .btn-group { display: flex; gap: 14px; flex-wrap: wrap; }
 
-        .btn:hover {
-            background-color: #5543b3;
-        }
+        /* ---------- Hero ---------- */
+        .hero { padding: 150px 0 100px; }
+        .hero .container { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .hero-content { width: 52%; }
 
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background-color: var(--secondary-color);
-        }
+        .hello { font-size: 18px; color: var(--main-color); margin-bottom: 8px; font-weight: 500; }
+        .hero h1 { font-size: 46px; line-height: 1.15; margin-bottom: 16px; }
+        .hero h2 { font-size: 28px; margin-bottom: 20px; color: var(--light-text); font-weight: 500; }
+        .typing { color: var(--main-color); border-right: 3px solid var(--main-color); padding-right: 4px; }
+        .hero p.intro { margin-bottom: 28px; color: var(--light-text); max-width: 56ch; }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 36px;
-            color: var(--main-color);
-        }
+        .hero-stats { display: flex; gap: 36px; margin-top: 40px; flex-wrap: wrap; }
+        .hero-stats strong { display: block; font-size: 28px; color: var(--main-color); line-height: 1.2; }
+        .hero-stats span { font-size: 14px; color: var(--light-text); }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .about-text {
-            width: 60%;
-        }
-
-        .about-image {
-            width: 35%;
-            text-align: center;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: var(--secondary-color);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-card h3 {
-            margin: 20px 0;
-            font-size: 24px;
-        }
-
-        .service-card p {
-            margin-bottom: 20px;
-            color: var(--light-text);
-        }
-
-        .read-more {
-            color: var(--main-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        /* Skills Section */
-        .skills {
-            padding: 100px 0;
-            background-color: var(--secondary-color);
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-category {
-            margin-bottom: 40px;
-        }
-
-        .skill-category h3 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: var(--main-color);
-        }
-
-        .skill-item {
-            margin-bottom: 20px;
-        }
-
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .skill-bar {
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 5px;
+        /* Terminal card */
+        .terminal {
+            width: 44%;
+            background: var(--terminal-bg);
+            border-radius: 12px;
+            box-shadow: 0 18px 40px rgba(15, 61, 90, 0.28);
             overflow: hidden;
+            font-family: var(--font-mono);
+            font-size: 13px;
         }
+        .terminal-bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; background: #14354b; }
+        .terminal-bar i { width: 11px; height: 11px; border-radius: 50%; background: #ff6b6b; display: block; }
+        .terminal-bar i:nth-child(2) { background: #f2c46d; }
+        .terminal-bar i:nth-child(3) { background: #6fe3a1; }
+        .terminal-bar span { margin-left: 10px; color: #8fb3c9; font-size: 12px; }
+        .terminal-body { padding: 18px 20px 22px; color: var(--terminal-text); line-height: 1.75; overflow-x: auto; white-space: pre; }
+        .t-prompt { color: var(--terminal-green); }
+        .t-open { color: var(--terminal-amber); }
 
-        .skill-progress {
-            height: 100%;
-            background-color: var(--main-color);
-            border-radius: 5px;
-        }
+        /* ---------- Sections ---------- */
+        section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 14px; font-size: 36px; color: var(--main-color); }
+        .section-sub { text-align: center; color: var(--light-text); max-width: 60ch; margin: 0 auto 56px; }
 
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-        }
+        /* About */
+        .about { background-color: var(--secondary-color); }
+        .about-content { display: flex; align-items: flex-start; justify-content: space-between; gap: 50px; }
+        .about-text { width: 60%; }
+        .about-text h3 { font-size: 24px; margin-bottom: 16px; }
+        .about-text p { margin-bottom: 16px; color: var(--light-text); }
+        .about-side { width: 36%; }
+        .about-image img { border-radius: 10px; width: 100%; height: 260px; object-fit: cover; margin-bottom: 22px; }
+        .info-list { list-style: none; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 8px 22px; }
+        .info-list li { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .info-list li:last-child { border-bottom: 0; }
+        .info-list b { color: var(--main-color); font-weight: 600; }
+        .info-list span { text-align: right; color: var(--light-text); }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
+        /* Services */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px; }
+        .service-card {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            padding: 30px 26px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 26px rgba(26, 92, 133, 0.14); }
+        .service-card i { color: var(--main-color); }
+        .service-card h3 { margin: 18px 0 10px; font-size: 21px; }
+        .service-card p { color: var(--light-text); font-size: 15px; }
 
-        .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--main-color);
+        /* Experience / timeline */
+        .experience { background-color: var(--secondary-color); }
+        .timeline { max-width: 900px; margin: 0 auto; position: relative; padding-left: 34px; }
+        .timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 3px; background: var(--main-soft); border-radius: 3px; }
+        .timeline-item { position: relative; margin-bottom: 34px; }
+        .timeline-item::before {
+            content: ""; position: absolute; left: -34px; top: 8px; width: 17px; height: 17px;
+            border-radius: 50%; background: var(--main-color); border: 3px solid var(--secondary-color);
+            box-shadow: 0 0 0 2px var(--main-color);
         }
+        .exp-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; }
+        .exp-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+        .exp-head h3 { font-size: 22px; }
+        .exp-date { background: var(--main-soft); color: var(--main-dark); font-size: 13px; font-weight: 500; padding: 4px 14px; border-radius: 20px; }
+        .exp-company { color: var(--main-color); font-weight: 600; margin-bottom: 14px; }
+        .exp-company i { margin-right: 6px; }
+        .exp-card > p { color: var(--light-text); margin-bottom: 14px; }
+        .exp-card h4 { font-size: 15px; margin: 18px 0 8px; }
+        .exp-card ul { margin-left: 20px; color: var(--light-text); }
+        .exp-card li { margin-bottom: 8px; }
+        .exp-card li strong { color: var(--text-color); font-weight: 600; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+        .tag { background: var(--secondary-color); border: 1px solid var(--border); color: var(--main-dark); font-size: 13px; padding: 4px 12px; border-radius: 6px; }
 
-        .contact-info p {
-            margin-bottom: 10px;
-            color: var(--light-text);
-        }
+        /* Skills */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px 50px; }
+        .skill-category h3 { margin-bottom: 22px; font-size: 22px; color: var(--main-color); }
+        .skill-item { margin-bottom: 18px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 15px; font-weight: 500; }
+        .skill-bar { height: 10px; background-color: #d9e6ee; border-radius: 5px; overflow: hidden; }
+        .skill-progress { height: 100%; background-color: var(--main-color); border-radius: 5px; width: 0; transition: width 1.1s ease-out; }
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            outline: none;
-        }
+        .tools-wrap { margin-top: 64px; }
+        .tools-wrap h3 { text-align: center; font-size: 24px; color: var(--main-color); margin-bottom: 28px; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+        .tool-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+        .tool-card i { font-size: 26px; color: var(--main-color); }
+        .tool-card h4 { margin: 12px 0 6px; font-size: 17px; }
+        .tool-card p { font-size: 14px; color: var(--light-text); }
 
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
+        /* Projects */
+        .projects { background-color: var(--secondary-color); }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+        .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; }
+        .project-card .p-icon { font-size: 28px; color: var(--main-color); margin-bottom: 14px; }
+        .project-card h3 { font-size: 20px; margin-bottom: 8px; }
+        .project-card p { color: var(--light-text); font-size: 15px; flex-grow: 1; }
+
+        /* Certifications / education */
+        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; max-width: 900px; margin: 0 auto; }
+        .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+        .edu-card i { color: var(--main-color); font-size: 26px; margin-bottom: 12px; }
+        .edu-card h3 { font-size: 19px; margin-bottom: 6px; }
+        .edu-card p { color: var(--light-text); font-size: 15px; }
+
+        /* Contact */
+        .contact { background-color: var(--secondary-color); }
+        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
+        .contact-info h3 { font-size: 24px; margin-bottom: 18px; color: var(--main-color); }
+        .contact-info p { margin-bottom: 12px; color: var(--light-text); }
+        .contact-info i { color: var(--main-color); width: 22px; }
+        .contact-info a { text-decoration: none; }
+        .contact-info a:hover { color: var(--main-color); }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 12px; margin-bottom: 18px; border: 1px solid var(--border);
+            border-radius: 6px; font-family: inherit; font-size: 15px; background: #fff;
         }
+        .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--main-color); border-color: transparent; }
+        .contact-form textarea { height: 150px; resize: vertical; }
+        .form-note { margin-top: 12px; font-size: 14px; color: var(--main-color); min-height: 20px; }
 
         /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
+        footer { background-color: #14252f; color: #fff; padding: 30px 0; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .social-links { display: flex; gap: 18px; }
+        .social-links a { color: #fff; font-size: 20px; transition: color 0.3s; }
+        .social-links a:hover { color: #7cc4ec; }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--main-color);
-        }
-
-        /* Responsive Design */
+        /* ---------- Responsive ---------- */
         @media (max-width: 992px) {
-            .hero, .about-content {
-                flex-direction: column;
-            }
-            
-            .hero-content, .hero-image, .about-text, .about-image {
-                width: 100%;
-            }
-            
-            .hero-image, .about-image {
-                margin-top: 40px;
-            }
-            
+            .hero .container, .about-content { flex-direction: column; }
+            .hero-content, .terminal, .about-text, .about-side { width: 100%; }
+            .hero h1 { font-size: 36px; }
+            .menu-toggle { display: block; }
             .nav-links {
-                display: none;
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                flex-direction: column; gap: 0; background: var(--bg-color);
+                box-shadow: 0 8px 14px rgba(0, 0, 0, 0.08);
             }
+            .nav-links.open { display: flex; }
+            .nav-links li { padding: 14px 24px; border-top: 1px solid var(--border); }
+        }
+
+        @media (max-width: 520px) {
+            section { padding: 70px 0; }
+            .hero { padding-top: 120px; }
+            .hero h2 { font-size: 22px; }
+            .section-title { font-size: 30px; }
+            .exp-card { padding: 22px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; }
         }
     </style>
 </head>
 <body>
+
     <!-- Header & Navigation -->
     <header>
         <div class="container">
-            <nav>
-                <div class="logo">Timmy Star</div>
-                <ul class="nav-links">
+            <nav aria-label="Main navigation">
+                <a href="#home" class="logo">Timmy Star</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -354,6 +292,7 @@
         </div>
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
@@ -361,10 +300,31 @@
                 <p class="hello">Hello, it's me</p>
                 <h1>AJIBOLA OLUWATIMILEYIN</h1>
                 <h2>I'm a <span class="typing">Cybersecurity Analyst</span></h2>
-                <p>Also known as Timmy Star, a dedicated cybersecurity specialist with a focus on creating secure, responsive, and scalable web applications. With a strong foundation in cybersecurity principles, I bring ideas to life and help businesses thrive online securely.</p>
-                <a href="#about" class="btn">More About Me</a>
-            </div><br><br><br><br><br><br>
-            
+                <p class="intro">Also known as Timmy Star. I find weaknesses in networks and web applications before attackers do, and I build secure, responsive and scalable software. I combine hands-on penetration testing with full stack development to help businesses grow online safely.</p>
+                <div class="btn-group">
+                    <a href="#experience" class="btn">View My Experience</a>
+                    <a href="#contact" class="btn btn-outline">Hire Me</a>
+                </div>
+                <div class="hero-stats">
+                    <div><strong>3</strong><span>Core fields: Security, Web, Systems</span></div>
+                    <div><strong>6+</strong><span>Projects built</span></div>
+                    <div><strong>HiiT PLC</strong><span>Industrial training</span></div>
+                </div>
+            </div>
+
+            <div class="terminal" aria-hidden="true">
+                <div class="terminal-bar"><i></i><i></i><i></i><span>kali@timmy-lab: ~</span></div>
+<div class="terminal-body"><span class="t-prompt">$</span> nmap -sV -sC 192.168.56.101
+Starting Nmap scan...
+PORT     STATE  SERVICE
+21/tcp   <span class="t-open">open</span>   ftp
+22/tcp   <span class="t-open">open</span>   ssh
+80/tcp   <span class="t-open">open</span>   http
+3306/tcp <span class="t-open">open</span>   mysql
+
+<span class="t-prompt">$</span> python manage.py runserver
+<span class="t-prompt">&#10003;</span> API running securely</div>
+            </div>
         </div>
     </section>
 
@@ -372,16 +332,26 @@
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
+            <p class="section-sub">A developer who thinks like an attacker, and a security analyst who writes real code.</p>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Full Stack Developer & Cybersecurity Specialist</h3>
-                    <p>I'm a passionate and versatile web developer, full stack developer, and UI/UX designer with a knack for crafting seamless, user-centric digital experiences. With expertise in both front-end and back-end technologies, I build robust, scalable web applications using tools like HTML, CSS, JavaScript, Node.js, and React, while ensuring clean, maintainable code.</p>
-                    <p>My UI/UX design skills focus on creating intuitive interfaces and engaging visuals, enhanced by modern aesthetics like dynamic animations and responsive layouts. I thrive on turning ideas into reality, delivering projects that balance functionality, accessibility, and good vibes.</p>
-                    <p>As a dedicated cybersecurity student, I aim to leverage my technical skills, knowledge, and passion for technology to protect digital systems and data from cyber threats. I am committed to continuous learning and professional growth in the field of cybersecurity to contribute to creating safer digital environments for individuals and organizations.</p>
-                    <p>Whether it's designing a sleek portfolio or developing a complex e-commerce platform, I'm driven by inclusivity, creativity, and a commitment to excellence.</p>
-                </div><br>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About Image">
+                    <h3>Full Stack Developer &amp; Cybersecurity Specialist</h3>
+                    <p>I'm a passionate and versatile web developer, full stack developer, and UI/UX designer with a knack for crafting seamless, user-centric digital experiences. With expertise in both front-end and back-end technologies, I build robust, scalable web applications using HTML, CSS, JavaScript, Node.js, React and Django, while keeping the code clean and maintainable.</p>
+                    <p>My cybersecurity work covers network scanning, traffic analysis and vulnerability assessment. I run my own home lab with Kali Linux, Metasploitable 2 and Ubuntu, where I practise reconnaissance, exploitation and hardening in a safe, isolated environment.</p>
+                    <p>As a student at Ladoke Akintola University of Technology (LAUTECH), I aim to use my technical skills and passion for technology to protect digital systems and data from cyber threats. I am committed to continuous learning so I can help create safer digital environments for individuals and organisations.</p>
+                    <p>Whether it's designing a sleek portfolio, developing a complex e-commerce platform, or auditing a network, I'm driven by creativity, integrity and a commitment to excellence.</p>
+                </div>
+                <div class="about-side">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80" alt="Cybersecurity and code on a screen">
+                    </div>
+                    <ul class="info-list">
+                        <li><b>Name</b><span>Timmy Star</span></li>
+                        <li><b>University</b><span>LAUTECH</span></li>
+                        <li><b>Focus</b><span>Security &amp; Web Dev</span></li>
+                        <li><b>Location</b><span>Ogun State, Nigeria</span></li>
+                        <li><b>Availability</b><span>Open to opportunities</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -391,30 +361,101 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Services</h2>
+            <p class="section-sub">What I can do for your business or team.</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-paint-brush fa-3x"></i>
-                    <h3>UI/UX Design</h3>
-                    <p>UI/UX Design focuses on creating intuitive and visually appealing user interfaces.</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <i class="fas fa-shield-halved fa-3x"></i>
+                    <h3>Cybersecurity Analysis</h3>
+                    <p>I analyse networks and data to detect weaknesses, misconfigurations and signs of suspicious activity, then recommend practical fixes.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-secret fa-3x"></i>
+                    <h3>Penetration Testing</h3>
+                    <p>I test websites, networks and systems with tools like Nmap and Metasploit so that security measures can be put in place before real attackers strike.</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-code fa-3x"></i>
-                    <h3>Web Development</h3>
-                    <p>Building responsive and dynamic websites using the latest web technologies.</p>
-                    <a href="#" class="read-more">Read More</a>
-                </div>
-                 <div class="service-card">
-                    <i class="fas fa-pencil-alt fa-3x"></i>
-                    <h3>Cybersecurity Analyst</h3>
-                    <p>I Analyse networks and data to check for any security downgradement.</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <h3>Web &amp; API Development</h3>
+                    <p>Responsive, fast websites and secure REST APIs built with React, Node.js and Django.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-pencil-alt fa-3x"></i>
-                    <h3>Penetration Tester</h3>
-                    <p>I Test  website, Networks and files to implement the security measures.</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <i class="fas fa-paint-brush fa-3x"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Intuitive, visually appealing interfaces that make products easy and enjoyable to use.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <p class="section-sub">Practical, hands-on experience in software development and network security.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="exp-card">
+                        <div class="exp-head">
+                            <h3>Industrial Training Intern (SIWES)</h3>
+                            <span class="exp-date">2026</span>
+                        </div>
+                        <div class="exp-company"><i class="fas fa-building"></i>HiiT PLC, Lekki Branch, Lagos</div>
+                        <p>Completed my Students Industrial Work Experience Scheme (SIWES) at HiiT PLC, where I worked across backend web development and network security. I applied classroom theory to real tasks and presented my work in a formal industrial training report and defence.</p>
+
+                        <h4>Backend Development with Django (Python)</h4>
+                        <ul>
+                            <li>Built <strong>RESTful APIs with Django and Django REST Framework</strong>, including full CRUD operations, serializers, views and URL routing.</li>
+                            <li>Designed <strong>models and database migrations</strong> and worked with the Django ORM to store and query data efficiently.</li>
+                            <li>Tested API endpoints for correct responses, validation and error handling.</li>
+                            <li>Followed clean-code and project-structure best practices to keep applications maintainable.</li>
+                        </ul>
+
+                        <h4>Network Scanning with Nmap</h4>
+                        <ul>
+                            <li>Performed <strong>host discovery, port scanning and service/version detection</strong> to map the devices and open services on a network.</li>
+                            <li>Identified exposed and unnecessary services and interpreted scan results to point out potential risks.</li>
+                            <li>Used different scan types and options to balance speed, accuracy and stealth.</li>
+                        </ul>
+
+                        <h4>Traffic Analysis with Wireshark</h4>
+                        <ul>
+                            <li><strong>Captured and analysed network packets</strong> to understand how protocols such as HTTP, DNS, TCP and ICMP behave.</li>
+                            <li>Applied capture and display filters to isolate suspicious or unusual traffic and troubleshoot connectivity problems.</li>
+                            <li>Observed how unencrypted traffic can leak information, reinforcing the importance of HTTPS and encryption.</li>
+                        </ul>
+
+                        <h4>Security Lab Practice</h4>
+                        <ul>
+                            <li>Set up an isolated virtual lab using <strong>Kali Linux, Metasploitable 2 and Ubuntu</strong> to practise reconnaissance, vulnerability assessment and hardening safely.</li>
+                            <li>Documented findings, methods and recommendations in clear technical reports.</li>
+                        </ul>
+
+                        <div class="tags">
+                            <span class="tag">Django</span><span class="tag">Django REST Framework</span><span class="tag">Python</span>
+                            <span class="tag">Nmap</span><span class="tag">Wireshark</span><span class="tag">Kali Linux</span>
+                            <span class="tag">Metasploitable 2</span><span class="tag">Ubuntu</span><span class="tag">Technical Reporting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="exp-card">
+                        <div class="exp-head">
+                            <h3>Freelance Web Developer &amp; UI/UX Designer</h3>
+                            <span class="exp-date">Ongoing</span>
+                        </div>
+                        <div class="exp-company"><i class="fas fa-laptop-code"></i>Self-employed (TYMSTAR codes)</div>
+                        <p>Design and build websites and web apps for small businesses, creatives and event brands.</p>
+                        <ul>
+                            <li>Delivered responsive brand websites, including a photography and videography site covering clients across Nigeria.</li>
+                            <li>Built full stack applications using <strong>React, Node.js, REST APIs and payment integrations</strong>.</li>
+                            <li>Translated client ideas into clear layouts, consistent branding and smooth user experiences.</li>
+                        </ul>
+                        <div class="tags">
+                            <span class="tag">HTML &amp; CSS</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">UI/UX</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -424,93 +465,114 @@
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Skills</h2>
+            <p class="section-sub">A balanced mix of development, security and professional strengths.</p>
+
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Technical Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>HTML</span>
-                            <span>89%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 89%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>CSS</span>
-                            <span>79%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 79%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>React</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Python</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
+                    <div class="skill-item"><div class="skill-info"><span>HTML</span><span>89%</span></div><div class="skill-bar"><div class="skill-progress" data-width="89"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>CSS</span><span>79%</span></div><div class="skill-bar"><div class="skill-progress" data-width="79"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>React</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Python</span><span>90%</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Django &amp; Django REST Framework</span><span>80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
                 </div>
+
+                <div class="skill-category">
+                    <h3>Cybersecurity Skills</h3>
+                    <div class="skill-item"><div class="skill-info"><span>Nmap (Network Scanning)</span><span>85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Wireshark (Traffic Analysis)</span><span>80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Kali Linux</span><span>82%</span></div><div class="skill-bar"><div class="skill-progress" data-width="82"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Metasploitable 2 (Vulnerable Lab)</span><span>78%</span></div><div class="skill-bar"><div class="skill-progress" data-width="78"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Ubuntu / Linux Administration</span><span>80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Vulnerability Assessment</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
+                </div>
+
                 <div class="skill-category">
                     <h3>Professional Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Creativity</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Communication</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Teamwork</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Problem Solving</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%;"></div>
-                        </div>
-                    </div>
+                    <div class="skill-item"><div class="skill-info"><span>Creativity</span><span>90%</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Communication</span><span>70%</span></div><div class="skill-bar"><div class="skill-progress" data-width="70"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Teamwork</span><span>85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Problem Solving</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Technical Documentation</span><span>80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
+                </div>
+            </div>
+
+            <div class="tools-wrap">
+                <h3>Security Lab &amp; Tools</h3>
+                <div class="tools-grid">
+                    <div class="tool-card"><i class="fas fa-dragon"></i><h4>Kali Linux</h4><p>Penetration testing distribution used for reconnaissance, scanning and exploitation practice.</p></div>
+                    <div class="tool-card"><i class="fas fa-bug"></i><h4>Metasploitable 2</h4><p>Intentionally vulnerable machine used as a safe target to practise attacks and learn how to fix them.</p></div>
+                    <div class="tool-card"><i class="fab fa-ubuntu"></i><h4>Ubuntu</h4><p>Linux server and desktop environment for development, deployment and system hardening.</p></div>
+                    <div class="tool-card"><i class="fas fa-network-wired"></i><h4>Nmap</h4><p>Host discovery, port scanning and service detection to map a network's attack surface.</p></div>
+                    <div class="tool-card"><i class="fas fa-water"></i><h4>Wireshark</h4><p>Packet capture and protocol analysis to inspect and troubleshoot network traffic.</p></div>
+                    <div class="tool-card"><i class="fas fa-server"></i><h4>VirtualBox / VMware</h4><p>Virtualisation platforms for building isolated, repeatable lab networks.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-sub">A selection of things I've designed, built and tested.</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <i class="fas fa-flask p-icon"></i>
+                    <h3>Cybersecurity Home Lab</h3>
+                    <p>An isolated virtual network with Kali Linux as the attacker machine and Metasploitable 2 and Ubuntu as targets, used to practise scanning with Nmap, traffic analysis with Wireshark and vulnerability assessment.</p>
+                    <div class="tags"><span class="tag">Kali Linux</span><span class="tag">Metasploitable 2</span><span class="tag">Nmap</span><span class="tag">Wireshark</span></div>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-list-check p-icon"></i>
+                    <h3>Django REST Todo API</h3>
+                    <p>A RESTful API with full CRUD operations, URL routing and tested endpoints, built with Django and Django REST Framework.</p>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">REST API</span></div>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-ticket p-icon"></i>
+                    <h3>ROKIVENT Ticketing Platform</h3>
+                    <p>An event-ticketing platform with online payments, built with a React front end and a Cloudflare Workers back end with a database and file storage.</p>
+                    <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Cloudflare</span><span class="tag">Paystack</span></div>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-camera p-icon"></i>
+                    <h3>Midas Media Website</h3>
+                    <p>A brand website for a photography and videography business serving clients across Nigeria, with a custom colour scheme, service showcase and clear contact options.</p>
+                    <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-music p-icon"></i>
+                    <h3>STARLYR</h3>
+                    <p>An AI songwriting web app where users upload a beat or vocal and generate lyrics, with a warm, clean interface designed for creators.</p>
+                    <div class="tags"><span class="tag">Web App</span><span class="tag">AI</span><span class="tag">UI/UX</span></div>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-graduation-cap p-icon"></i>
+                    <h3>Student Grade Manager</h3>
+                    <p>A Python 3 console application that manages student records and grades with JSON storage and CSV export.</p>
+                    <div class="tags"><span class="tag">Python 3</span><span class="tag">JSON</span><span class="tag">CSV</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education &amp; Training</h2>
+            <p class="section-sub">Formal study and practical training that support my work.</p>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <i class="fas fa-university"></i>
+                    <h3>Ladoke Akintola University of Technology (LAUTECH)</h3>
+                    <p>University student focused on cybersecurity, web development and information systems.</p>
+                </div>
+                <div class="edu-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>SIWES Industrial Training: HiiT PLC</h3>
+                    <p>Practical training in Django backend development, Nmap scanning and Wireshark traffic analysis.</p>
                 </div>
             </div>
         </div>
@@ -520,74 +582,111 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact Me</h2>
+            <p class="section-sub">Have a project, an internship or a role in mind? Let's talk.</p>
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Let's Work Together</h3>
-                    <p><i class="fas fa-envelope"></i> oluwatimileyinaji@gmail.com</p>
-                    
-            <p>GitHub: <a href="https://github.com/T798-bi">T798-bi</a></p>
-
-                    <p><i class="fas fa-phone"></i> 09049414101</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:oluwatimileyinaji@gmail.com">oluwatimileyinaji@gmail.com</a></p>
+                    <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/T798-bi" target="_blank" rel="noopener">T798-bi</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+2349049414101">09049414101</a></p>
                     <p><i class="fas fa-map-marker-alt"></i> 10, Ojegbile Str, Olambe, Ogun State</p>
-                    <p>I'm always open to discussing product design work or partnership opportunities.</p>
-                    
+                    <p>I'm always open to discussing security work, development projects or partnership opportunities.</p>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <input type="email" placeholder="Enter Your Email" required>
-                        <textarea placeholder="Enter Your Message" required></textarea>
-                        <button type="submit" class="btn">Submit</button>
+                    <form id="contactForm">
+                        <input type="text" id="name" placeholder="Your Name" required aria-label="Your name">
+                        <input type="email" id="email" placeholder="Enter Your Email" required aria-label="Your email">
+                        <textarea id="message" placeholder="Enter Your Message" required aria-label="Your message"></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                        <p class="form-note" id="formNote" role="status"></p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2023 Timmy Star. All Rights Reserved.</p>
+                <p>&copy; <span id="year">2026</span> Timmy Star. All Rights Reserved.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/T798-bi" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:oluwatimileyinaji@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple typing animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const texts = ['Cybersecurity Specialist', 'Web Developer', 'UI/UX Designer', 'Full Stack Developer'];
-            let count = 0;
-            let index = 0;
-            let currentText = '';
-            let letter = '';
-            
+        document.addEventListener('DOMContentLoaded', function () {
+            /* Footer year */
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            /* Mobile menu */
+            const toggle = document.getElementById('menuToggle');
+            const links = document.getElementById('navLinks');
+            toggle.addEventListener('click', function () {
+                const open = links.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open);
+            });
+            links.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    links.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            /* Typing animation (types and deletes) */
+            const texts = ['Cybersecurity Analyst', 'Penetration Tester', 'Web Developer', 'UI/UX Designer', 'Full Stack Developer'];
+            const el = document.querySelector('.typing');
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let t = 0, i = 0, deleting = false;
+
             function type() {
-                if (count === texts.length) {
-                    count = 0;
-                }
-                currentText = texts[count];
-                letter = currentText.slice(0, ++index);
-                
-                document.querySelector('.typing').textContent = letter;
-                if (letter.length === currentText.length) {
-                    count++;
-                    index = 0;
-                    setTimeout(type, 2000);
-                } else {
-                    setTimeout(type, 100);
-                }
+                const word = texts[t];
+                i += deleting ? -1 : 1;
+                el.textContent = word.slice(0, i);
+                let delay = deleting ? 45 : 90;
+                if (!deleting && i === word.length) { deleting = true; delay = 1800; }
+                else if (deleting && i === 0) { deleting = false; t = (t + 1) % texts.length; delay = 400; }
+                setTimeout(type, delay);
             }
-            
-            type();
+            if (!reduce) { type(); }
+
+            /* Skill bars animate when scrolled into view */
+            const bars = document.querySelectorAll('.skill-progress');
+            if ('IntersectionObserver' in window && !reduce) {
+                const obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.style.width = entry.target.dataset.width + '%';
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                bars.forEach(function (b) { obs.observe(b); });
+            } else {
+                bars.forEach(function (b) { b.style.width = b.dataset.width + '%'; });
+            }
+
+            /* Contact form: opens the visitor's email app with the message filled in */
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                const subject = encodeURIComponent('Portfolio enquiry from ' + name);
+                const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')');
+                window.location.href = 'mailto:oluwatimileyinaji@gmail.com?subject=' + subject + '&body=' + body;
+                document.getElementById('formNote').textContent = 'Thanks, ' + name + '! Your email app should open so you can send the message.';
+                this.reset();
+            });
         });
     </script>
 </body>
 </html>
-
